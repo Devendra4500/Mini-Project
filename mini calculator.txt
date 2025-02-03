@@ -1,0 +1,40 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+float add (float a, float b) {
+  return a+b; }
+float sub(float a, float b) {
+  return a-b; } 
+float mul (float a, float b) {
+  return a*b;} 
+float divi (float a, float b) { 
+  return b!=0? a/b : 0; }
+  
+int main() {
+float n1,n2;
+char op;
+
+float (*operation) (float, float);
+printf("Enter first number: ");
+scanf("%f", &n1);
+printf ("Enter operator (+, -, + ,/): ");
+scanf(" %c", &op );
+printf ("Enter second number: ");
+scanf("%f", &n2);
+switch (op){
+case '+': operation = add; break;
+case '-': operation = sub; break;
+case '*': operation = mul; break;
+case '/': operation = divi; break;
+default: printf("Invalid: Operator! "); return 1;
+}
+printf(" Result:  %.2f \n",operation (n1,n2));
+return 0;
+}
